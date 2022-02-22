@@ -7,6 +7,7 @@ public class RacingCar implements Comparable<RacingCar> {
     private static final int START_POSITION = 0;
     private static final int MOVE_STANDARD = 4;
     private static final int MAXIMUM_NAME_LENGTH = 5;
+    private static final int SAME = 0;
     private static final String EMPTY = "";
     private static final String EXCEPTION_TOO_LONG_NAME = "[ERROR] 자동차 이름은 반드시 존재해야하며 5자 이하여야 합니다.\n";
     private final String name;
@@ -39,10 +40,7 @@ public class RacingCar implements Comparable<RacingCar> {
     }
 
     public boolean isSamePosition(RacingCar racingCar) {
-        if (compareTo(racingCar) == 0) {
-            return true;
-        }
-        return false;
+        return compareTo(racingCar) == SAME;
     }
 
     @Override
