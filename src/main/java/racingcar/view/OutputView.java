@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import racingcar.domain.RacingCar;
 import racingcar.domain.RacingCars;
 
 public class OutputView {
@@ -19,21 +20,10 @@ public class OutputView {
         System.out.println(TRIAL_RESULT);
     }
 
-    private static Map<String, Integer> zipToMap(List<String> keys, List<Integer> values) {
-        return IntStream.range(0, keys.size())
-                .boxed()
-                .collect(Collectors.toMap(keys::get, values::get));
-    }
-
-
-
     public static void printCurrentRaceState(RacingCars racingCars) {
-        Map<String, Integer> namesAndPositions = zipToMap(racingCars.getNames(), racingCars.getPositions());
-        namesAndPositions
-                .keySet()
-                .stream()
-                .forEach(key -> raceStateFormat(key, namesAndPositions.get(key)));
-        System.out.println();
+        for (RacingCar racingCar : racingCars.getRacingCars()) {
+            raceStateFormat(racingCar.getName(), racingCar.getPosition());
+        }
     }
 
     private static void raceStateFormat(String name, int position) {

@@ -52,16 +52,8 @@ public class RacingCars {
         }
     }
 
-    public List<Integer> getPositions() {
-        return racingCars.stream()
-                .map(RacingCar::getPosition)
-                .collect(Collectors.toList());
-    }
-
-    public List<String> getNames() {
-        return racingCars.stream()
-                .map(RacingCar::getName)
-                .collect(Collectors.toList());
+    public List<RacingCar> getRacingCars() {
+        return this.racingCars;
     }
 
     public List<String> getWinnerNames() {
