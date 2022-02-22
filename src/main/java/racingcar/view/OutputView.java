@@ -1,5 +1,6 @@
 package racingcar.view;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -23,6 +24,8 @@ public class OutputView {
                 .boxed()
                 .collect(Collectors.toMap(keys::get, values::get));
     }
+
+
 
     public static void printCurrentRaceState(RacingCars racingCars) {
         Map<String, Integer> namesAndPositions = zipToMap(racingCars.getNames(), racingCars.getPositions());
